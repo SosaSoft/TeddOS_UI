@@ -104,7 +104,8 @@ char **shParseLine(char *line)
 }
 
 /**
-* Funcion que realiza acciones en base a los tokens
+* Funcion que ejecuta los programas del sistema
+* basandose en los tokens
 */
 int shExecute(char **tokens)
 {
