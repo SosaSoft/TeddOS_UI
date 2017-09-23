@@ -37,6 +37,22 @@ void systemTag(void){
 /**
 *   Funcion que reproduce un 'bep'
 */
-void bep(void){
+void bep(int sound){
     // Code to make a bep sounds
+    switch (sound)
+    {
+        case 1:
+            break;
+
+        case 2:
+            break;
+
+        case 3:
+            break;
+    }
+}
+
+void version(char *app)
+{
+    printf("-");
 }

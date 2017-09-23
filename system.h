@@ -5,10 +5,11 @@
         // Interfaz
         void clear(void);
         void systemTag(void);
+        void version(char *app);        
 
         // Hardware
         void powerOff(void);
-        void bep(void);
+        void bep(int sound);
 
     /* Constantes */
     // EMPTY

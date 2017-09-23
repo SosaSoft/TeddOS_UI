@@ -108,6 +108,78 @@ char **shParseLine(char *line)
 */
 int shExecute(char **tokens)
 {
-    // Exec programs
-    return 0;
+    char *cmd = tokens[0];
+    char *executor = tokens[1];
+
+    switch (cmd)
+    {
+        case "calc":
+            // Limpia la pantalla
+            clear();
+            
+            // Ejecuta segun argumentos
+            switch (switch_on)
+            {
+                case "-i":
+                    /*RUN LOOP*/
+                    break;
+
+                // Mostrar la version
+                case "-v":
+                    /*Show Version*/
+                    break;
+
+                default:
+                    printf("Ingresa un argumento valido");
+                    break;
+            }
+            break;
+
+        case "sound":
+            // Limpia la pantalla
+            clear();
+            
+            // Ejecuta segun argumentos
+            switch (switch_on)
+            {
+                case "-a":
+                    bep(1);
+                    break;
+                
+                case "-b":
+                    bep(2);
+                    break;
+
+                case "-c":
+                    bep(3);
+                    break;
+
+                // Mostrar la version
+                case "-v":
+                    /*Show Version*/
+                    break;
+
+                default:
+                    printf("Ingresa un argumento valido");
+                    break;
+            }
+            break;
+
+        case "shtdown":
+            // Ejecuta la funcion que apaga la computadora
+            powerOff();
+            break;
+
+        default:
+            // Limpia la pantalla
+            clear();
+
+            // Muestra mensaje de no reconocer el comando
+            printf("- No se reconoce el comando ingresado -");
+            
+            // Retorna 0 para continuar con la lectura de comandos
+            return 0;
+
+            break;
+    }
 }
