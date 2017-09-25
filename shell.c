@@ -135,6 +135,7 @@ int shExecute(char **tokens)
 
         default:
             printf("No se reconoce el comando ingresado.");
+            return 0;
             break;
     }
 }

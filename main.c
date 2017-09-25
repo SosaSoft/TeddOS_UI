@@ -5,7 +5,7 @@
  *
  * Created:     <--/--/2017>
  * Modified:    <24/09/2017>
- *//
+ */
 
 /* Librerias a utilizar */
 #include <stdio.h>

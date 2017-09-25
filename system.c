@@ -11,7 +11,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-/* Headers del sistema */
+/* Header del sistema */
 #include "system.h"
 
 /*********************Tags del sistema**********************/
