@@ -2,14 +2,22 @@
 #define SYSTEM_H
 
     /* Funciones */
-        // Interfaz
-        void clear(void);
-        void systemTag(void);
-        void version(char *app);        
 
-        // Hardware
-        void powerOff(void);
-        void bep(int sound);
+        // TeddOS
+        void sys_tag(void);
+        void sys_init(void);
+        void sys_header(void);            
+
+        // Funciones de pantalla
+        void c_clear(void);
+        void c_printLine(char *line);
+        char c_readChar(void);
+        char *c_readLine(void);
+
+        // Funciones del sistema
+        void sys_shtdown(void);
+        void sys_beep(int sound);
+        void sys_version(char *app); 
 
     /* Constantes */
     // EMPTY
@@ -19,6 +27,7 @@
     char *shReadLine(void);
     char **shParseLine(char *line);
     int shExecute(char **tokens);
+    int shFindCmdID(char *cmd);
 
     /* Constantes Shell */
     #define TOKEN_BUF_SIZE 64
