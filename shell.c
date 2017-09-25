@@ -8,10 +8,15 @@
 
 /* Librerias a utilizar */
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-/* Headers del sistema */
+/* Header del sistema */
 #include "system.h"
-#include "calc.h"
+
+/* Headers de aplicaciones */
+// #include "calc.h"
+// #include "media.h"
 
 /**
 * Loop que administra el funcionamiento del shell
@@ -25,7 +30,7 @@ void shLoop(void)
     do {
 
         /*Texto en pantalla*/
-        printf("$ TeddOS> ");
+        sys_tag();
 
         /*Leer una linea ingresada por el usuario*/
         line = shReadLine();
@@ -109,77 +114,45 @@ char **shParseLine(char *line)
 int shExecute(char **tokens)
 {
     char *cmd = tokens[0];
-    char *executor = tokens[1];
+    char *action = tokens[1];
 
-    switch (cmd)
+    switch (shFindCmdID(cmd))
     {
-        case "calc":
-            // Limpia la pantalla
-            clear();
-            
-            // Ejecuta segun argumentos
-            switch (switch_on)
-            {
-                case "-i":
-                    /*RUN LOOP*/
-                    break;
-
-                // Mostrar la version
-                case "-v":
-                    /*Show Version*/
-                    break;
-
-                default:
-                    printf("Ingresa un argumento valido");
-                    break;
-            }
+        /*SYSTEM*/
+        case 1:
+            // System functions
             break;
 
-        case "sound":
-            // Limpia la pantalla
-            clear();
-            
-            // Ejecuta segun argumentos
-            switch (switch_on)
-            {
-                case "-a":
-                    bep(1);
-                    break;
-                
-                case "-b":
-                    bep(2);
-                    break;
-
-                case "-c":
-                    bep(3);
-                    break;
-
-                // Mostrar la version
-                case "-v":
-                    /*Show Version*/
-                    break;
-
-                default:
-                    printf("Ingresa un argumento valido");
-                    break;
-            }
+        /*CALC*/
+        case 2:
+            // Calc functions
             break;
 
-        case "shtdown":
-            // Ejecuta la funcion que apaga la computadora
-            powerOff();
+        /*MUSIC*/
+        case 3:
+            // Music functions
             break;
 
         default:
-            // Limpia la pantalla
-            clear();
-
-            // Muestra mensaje de no reconocer el comando
-            printf("- No se reconoce el comando ingresado -");
-            
-            // Retorna 0 para continuar con la lectura de comandos
-            return 0;
-
+            printf("No se reconoce el comando ingresado.");
             break;
     }
+}
+
+/**
+* Funcion que busca el ID del comando ejecutado
+*/
+int shFindCmdID(char *cmd) 
+{
+    /*Informacion del sistema*/
+    if (strcmp(cmd, "system"))
+        return 1;
+    
+    /*Calculadora*/
+    if (strcmp(cmd, "calc"))
+        return 2;
+
+    /*Reproductor de musica*/
+    if (strcmp(cmd, "music"))
+        return 3;
 }
