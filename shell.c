@@ -120,23 +120,23 @@ int shExecute(char **tokens)
     {
         /*SYSTEM*/
         case 1:
+            printf("%s \n", "Sistema");
             // System functions
-            break;
-
+            return 0;
         /*CALC*/
         case 2:
+            printf("%s \n", "Aqui deba iniciar la calculadora");
             // Calc functions
-            break;
+            return 0;
 
         /*MUSIC*/
         case 3:
             // Music functions
-            break;
+            return 0;
 
         default:
-            printf("No se reconoce el comando ingresado.");
+            printf("\nNo se reconoce el comando ingresado.\n\n");
             return 0;
-            break;
     }
 }
 
@@ -146,14 +146,20 @@ int shExecute(char **tokens)
 int shFindCmdID(char *cmd) 
 {
     /*Informacion del sistema*/
-    if (strcmp(cmd, "system"))
+    if (!strcmp(cmd, "system")){
         return 1;
+    }
     
     /*Calculadora*/
-    if (strcmp(cmd, "calc"))
+    if (!strcmp(cmd, "calc")){
         return 2;
-
+    }
+        
     /*Reproductor de musica*/
-    if (strcmp(cmd, "music"))
+    if (!strcmp(cmd, "music")){
         return 3;
+    }
+
+    /*Default return*/
+    return 0;
 }
