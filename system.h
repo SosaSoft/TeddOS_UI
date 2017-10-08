@@ -17,7 +17,8 @@
         // Funciones del sistema
         void sys_shtdown(void);
         void sys_beep(int sound);
-        void sys_version(char *app); 
+        void sys_version(void); 
+        int sys_exec(char *act);
 
     /* Constantes */
     // EMPTY

@@ -45,6 +45,7 @@ void sys_header(void){
 */
 void sys_shtdown(void){
     // Code to power off
+    printf("%s \n", "Actualmente no disponible");
 }
 
 /**
@@ -68,9 +69,9 @@ void sys_beep(int sound){
 /**
 *   Funcion que muestra la version del sistema
 */
-void sys_version(char *app)
+void sys_version(void)
 {
-    printf("-");
+    printf("%s \n", "TeddOS v-1.0");
 }
 
 /*******************Funciones de pantalla*******************/
@@ -105,4 +106,18 @@ char *c_readLine(void)
     getline(&line, &bufferSize, stdin);
 
     return line;
+}
+
+/*******************Funciones del sistema*******************/
+int sys_exec(char *act)
+{
+    if (!strcmp(act, "version")){
+        sys_version();
+        return 0;
+    }
+
+    if (!strcmp(act, "shutdown")){
+        sys_shtdown();
+        return 0;
+    }
 }

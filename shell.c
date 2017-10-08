@@ -118,20 +118,23 @@ int shExecute(char **tokens)
 
     switch (shFindCmdID(cmd))
     {
+        /*DISPLAY*/
+        case 0:
+            c_clear();
+            return 0;
+        
         /*SYSTEM*/
         case 1:
-            printf("%s \n", "Sistema");
-            // System functions
-            return 0;
+            return sys_exec(action);
+            
         /*CALC*/
         case 2:
-            printf("%s \n", "Aqui deba iniciar la calculadora");
-            // Calc functions
+            printf("%s \n", "No esta instalada la calculadora");
             return 0;
 
         /*MUSIC*/
         case 3:
-            // Music functions
+            printf("%s \n", "No esta instalado el reproductor de media");
             return 0;
 
         default:
@@ -145,6 +148,11 @@ int shExecute(char **tokens)
 */
 int shFindCmdID(char *cmd) 
 {
+    /*Limpia la pantalla*/
+    if (!strcmp(cmd, "clear")){
+        return 0;
+    }
+
     /*Informacion del sistema*/
     if (!strcmp(cmd, "system")){
         return 1;
